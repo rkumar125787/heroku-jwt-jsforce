@@ -14,10 +14,6 @@ app.use(compression());
 const conn = new jsforce.Connection();
 
 app.get('/', async (req, res) => {
-
-})
-
-app.listen(PORT, async (req, res) => {
     try {
         const jwtTokenresponse = await getToken({
             iss: process.env.CLIENT_ID,
@@ -39,5 +35,8 @@ app.listen(PORT, async (req, res) => {
         console.log(e);
         res.json(JSON.stringify(e))
     }
+})
+
+app.listen(PORT, (req, res) => {
     console.log('Server Started on' + HOST + 'on port ' + PORT);
 })
