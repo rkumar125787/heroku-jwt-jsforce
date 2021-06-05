@@ -25,12 +25,13 @@ app.listen(PORT, async (req, res) => {
             aud: process.env.LOGIN_URL,
             privateKey: process.env.PRIVATE_KEY
         })
+        console.log('jwtTokenresponse::' + JSON.stringify(jwtTokenresponse));
         conn.initialize({
             instanceUrl: jwtTokenresponse.instance_url,
             accessToken: jwtTokenresponse.access_token
 
         })
-        const accounts = await conn.query('select Id,Name from account');
+        const accounts = await conn.query('select Id,Name from account limit 2');
         res.json(accounts);
     }
     catch (e) {
