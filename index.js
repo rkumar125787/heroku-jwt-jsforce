@@ -37,6 +37,6 @@ app.get('/', async (req, res) => {
     }
 })
 
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
     console.log('Server Started on' + HOST + 'on port ' + PORT);
 })
