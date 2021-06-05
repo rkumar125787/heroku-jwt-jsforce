@@ -28,7 +28,6 @@ app.get('/', async (req, res) => {
 
         })
         const accounts = await conn.query('select Id,Name from account');
-        console.log(JSON.stringify(accounts));
         res.json(accounts);
     }
     catch (e) {
