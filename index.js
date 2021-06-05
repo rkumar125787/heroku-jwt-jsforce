@@ -31,7 +31,8 @@ app.listen(PORT, async (req, res) => {
             accessToken: jwtTokenresponse.access_token
 
         })
-        const accounts = await conn.query('select Id,Name from account limit 2');
+        const accounts = await conn.query('select Id,Name from account');
+        console.log(JSON.stringify(accounts));
         res.json(accounts);
     }
     catch (e) {
