@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
 
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     try {
         const jwtTokenresponse = await getToken({
             iss: process.env.CLIENT_ID,
